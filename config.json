@@ -1,0 +1,7 @@
+{
+    "DATASET": "CustomDataset",
+    "MODEL_TYPE": "resnet18",
+    "EPOCH": 60,
+    "BATCH_SIZE": 32,
+    "LR": 0.001
+}
