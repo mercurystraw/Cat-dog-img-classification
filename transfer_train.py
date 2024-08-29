@@ -91,11 +91,13 @@ def eval_clean():
 
     return acc
 
-
-for epoch in range(config['EPOCH']):
-        model_clean, train_acc, train_loss = train(epoch)
-
-        test_acc = eval_clean()
+accs_dir = f"trained_results/{config['MODEL_TYPE']}_epoch{config['EPOCH']}_accs"
+accs_save_path = os.path.join(accs_dir, "train_results.txt")
+with open(accs_save_path, 'w') as f:
+    for epoch in range(config['EPOCH']):
+            model_clean, train_acc, train_loss = train(epoch)
+            test_acc = eval_clean()
+            f.write(f"Epoch: {epoch}, Train ACC: {train_acc:.3f}, Test ACC: {test_acc:.3f}, Train Loss: {train_loss:.8f}\n")
 
 model_save_path = f"trained_models/pretrained_Resnet50_epoch{config['EPOCH']}.pth"
 os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
