@@ -92,6 +92,7 @@ def eval_clean():
     return acc
 
 accs_dir = f"trained_results/{config['MODEL_TYPE']}_epoch{config['EPOCH']}_accs"
+os.makedirs(accs_dir, exist_ok=True)
 accs_save_path = os.path.join(accs_dir, "train_results.txt")
 with open(accs_save_path, 'w') as f:
     for epoch in range(config['EPOCH']):
