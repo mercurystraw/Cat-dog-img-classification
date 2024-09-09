@@ -16,11 +16,11 @@ from model_zoo.vgg import VGG11
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-# Load attack configuration
+# Load configuration
 with open('config.json') as config_file:
     config = json.load(config_file)
 
-# Load raw data and keep only two classes
+# Load raw data
 trainset, testset = load_data(config)
 
 
